@@ -1,0 +1,40 @@
+{
+  "name": "express_utils",
+  "version": "1.0.0",
+  "description": "A library of commonly used express.js functionas as created and used by the MRI Dev Team",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=local ./node_modules/mocha/bin/_mocha --full-trace --recursive ./test",
+    "test-watch": "NODE_ENV=local ./node_modules/mocha/bin/_mocha --full-trace --recursive -w /test",
+    "lint": "./node_modules/jscs/bin/jscs src -x",
+    "preversion": "npm run lint && npm t"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://CollinEstes@github.com/mridevteam/express_utils.git"
+  },
+  "keywords": [
+    "node.js",
+    "express.js",
+    "utility",
+    "utilities",
+    "middleware"
+  ],
+  "author": "MRI Dev Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mridevteam/express_utils/issues"
+  },
+  "homepage": "https://github.com/mridevteam/express_utils#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-spies": "^0.6.0",
+    "express": "^4.14.0",
+    "jscs": "^2.11.0",
+    "mocha": "^2.5.3",
+    "supertest": "^1.2.0"
+  },
+  "dependencies": {
+    "validity_checks": "^1.0.0"
+  }
+}
