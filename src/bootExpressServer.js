@@ -13,7 +13,7 @@ let normalizePort = (val) => {
   let port = parseInt(val, 10);
 
   if (isNaN(port)) {
-   throw new Error('port must be a number');
+    throw new Error('port must be a number');
   }
 
   if (port >= 0) {
