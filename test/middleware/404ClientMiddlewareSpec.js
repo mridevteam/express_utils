@@ -1,7 +1,7 @@
 "use strict";
 var chai = require('chai')
   ,	expect = chai.expect
-  , middleware = require('../../src/middleware/404ClientMiddleware')
+  , middleware = require('../../src/middleware/404ClientMiddleware')('404')
   ;
 
 describe('404ClientMiddlewareSpec', function () {
@@ -17,7 +17,6 @@ describe('404ClientMiddlewareSpec', function () {
             }
           }
         };
-
         middleware({}, mockRes);
     	});
     });

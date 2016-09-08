@@ -3,19 +3,28 @@
 //const isLocal = require('../functional/isLocalEnv');
 
 /**
- * Render 500 page
+ * 500 Client middleware
  *
- * @param {Object} err - Error object
- * @param {Object} req - ExpressJs Request object
- * @param {Object} res - ExpressJs Response object
- * @param {function} next - function to call when "done" to pass control to the next middleware
+ * @param {string} view
  */
-module.exports = (err, req, res, next) => {
-  //if (isLocal()) {
-  if (process.env.NODE_ENV == 'local' || !process.env.NODE_ENV) {
-    console.error(err.stack);
+module.exports = function (view) {
+  /**
+   * Render 500 middleware
+   *
+   * @param {Object} err - Error object
+   * @param {Object} req - ExpressJs Request object
+   * @param {Object} res - ExpressJs Response object
+   * @param {function} next - function to call when "done" to pass control to the next middleware
+   */
+  return (err, req, res, next) => {
+    //if (isLocal()) {
+    if (process.env.NODE_ENV == 'local' || !process.env.NODE_ENV) {
+      console.error(err.stack);
+    }
+
+    res.status(err.status || 500).render(view);
   }
 
-  res.status(err.status || 500).render(`500`);
-};
+}
+
 

@@ -1,7 +1,7 @@
 "use strict";
 var chai = require('chai')
   ,	expect = chai.expect
-  , middleware = require('../../src/middleware/500ClientMiddleware')
+  , middleware = require('../../src/middleware/500ClientMiddleware')('500')
   ;
 
 describe('500ClientMiddlewareSpec', function () {
