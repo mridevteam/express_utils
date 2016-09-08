@@ -7,7 +7,8 @@
     "test": "istanbul cover ./node_modules/mocha/bin/_mocha ./test --report lcovonly -- --recursive -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "test-watch": "NODE_ENV=local ./node_modules/mocha/bin/_mocha --full-trace --recursive  ./test",
     "lint": "./node_modules/jscs/bin/jscs src -x",
-    "preversion": "npm run lint && npm t"
+    "preversion": "npm run lint && npm t",
+    "post version": "npm publish"
   },
   "repository": {
     "type": "git",
