@@ -4,7 +4,7 @@
   "description": "A library of commonly used express.js functions as created and used by the MRI Dev Team",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=local ./node_modules/mocha/bin/_mocha --full-trace --recursive ./test",
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha ./test --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "test-watch": "NODE_ENV=local ./node_modules/mocha/bin/_mocha --full-trace --recursive -w /test",
     "lint": "./node_modules/jscs/bin/jscs src -x",
     "preversion": "npm run lint && npm t"
@@ -29,7 +29,9 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-spies": "^0.6.0",
+    "coveralls": "^2.11.12",
     "express": "^4.14.0",
+    "istanbul": "^0.4.5",
     "jscs": "^2.11.0",
     "mocha": "^2.5.3",
     "supertest": "^1.2.0"
