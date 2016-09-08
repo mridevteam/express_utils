@@ -1,15 +1,13 @@
 'use strict';
 
 /**
- * Client 404 middleware
+ *  Client 404 middleware
  *
- * @param {Object} req - ExpressJs Request object
- * @param {Object} res - ExpressJs Response object
- * @param {function} next - function to call when "done" to pass control to the next middleware
+ * @param {string} view
  */
-module.exports = function (view) {
+module.exports = function(view) {
   return (req, res, next) => {
     res.status(404).render(view);
-  }
+  };
 };
 

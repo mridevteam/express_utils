@@ -3,12 +3,10 @@
 /**
  * Should update the record within __menuItems to isCurrent: true and all others to false
  *
- * @param {Object} req
- * @param {Object} res
- * @param {function} next
+ * @param {string} baseAppUrl
  */
 module.exports = function autoUpdateMenuItemBasedOnPath(baseAppUrl) {
-  return function (req, res, next) {
+  return function(req, res, next) {
     let menuItems = req.app.locals.__menuItems
       , path = `${baseAppUrl || ''}${req.path}`
       , setCurrent = (menuItem) => {
@@ -32,5 +30,5 @@ module.exports = function autoUpdateMenuItemBasedOnPath(baseAppUrl) {
     req.app.locals.__menuItems = menuItems;
 
     next();
-  }
+  };
 };

@@ -7,15 +7,8 @@
  *
  * @param {string} view
  */
-module.exports = function (view) {
-  /**
-   * Render 500 middleware
-   *
-   * @param {Object} err - Error object
-   * @param {Object} req - ExpressJs Request object
-   * @param {Object} res - ExpressJs Response object
-   * @param {function} next - function to call when "done" to pass control to the next middleware
-   */
+module.exports = function(view) {
+
   return (err, req, res, next) => {
     //if (isLocal()) {
     if (process.env.NODE_ENV == 'local' || !process.env.NODE_ENV) {
@@ -23,8 +16,7 @@ module.exports = function (view) {
     }
 
     res.status(err.status || 500).render(view);
-  }
+  };
 
-}
-
+};
 
