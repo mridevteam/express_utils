@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/mridevteam/express_utils.svg?branch=master)](https://travis-ci.org/mridevteam/express_utils)
+[![Coverage Status](https://coveralls.io/repos/github/mridevteam/express_utils/badge.svg?branch=master)](https://coveralls.io/github/mridevteam/express_utils?branch=master)
 
 # express_utils
 A library of commonly used express.js functions as created and used by the MRI Dev Team
