@@ -8,7 +8,7 @@
     "test-watch": "NODE_ENV=local ./node_modules/mocha/bin/_mocha --full-trace --recursive  ./test",
     "lint": "./node_modules/jscs/bin/jscs src -x",
     "preversion": "npm run lint && npm t",
-    "post version": "npm publish"
+    "postversion": "npm publish"
   },
   "repository": {
     "type": "git",
