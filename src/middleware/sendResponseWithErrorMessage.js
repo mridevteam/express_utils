@@ -1,5 +1,4 @@
-/* jshint -W098*/
+'use strict';
 module.exports = function(err, req, res, next) {
-  'use strict';
   res.send(err.message);
 };

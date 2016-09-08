@@ -64,5 +64,25 @@ describe('autoUpdateMenuItemSpec', function () {
           done(err);
         });
     });
+    it('should handle no menu items', function (done) {
+      let nextSpy = chai.spy(function(req, res, next) {
+          res.write(JSON.stringify(req.app.locals.__menuItems));
+
+          next();
+        })
+        , expressApp = setUpExpressTestEnv({menuItems: []}, nextSpy)
+        ;
+
+      supertest(expressApp)
+        .get('/')
+        .expect(200)
+        .end(function(err, res) {
+          expect(err).to.equal(null);
+
+          expect(nextSpy).to.have.been.called();
+
+          done(err);
+        });
+    });
   });
 });

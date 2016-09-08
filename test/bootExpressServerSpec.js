@@ -29,5 +29,6 @@ describe('bootExpressServerSpec', function () {
           bootExpressServer({});
         }).to.throw();
       });
+
     });
 });
