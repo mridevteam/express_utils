@@ -77,6 +77,64 @@ bootExpressServer(app, PORT, TIMEOUT);
 
 ### Middleware
 
+##### Allow Cross Origin
+Allow CORs middleware
+```
+var app = express=();
+    , cors = require('express_utils').middleware.allowCrossOrigin
+    ;
+
+
+app.use(cors);
+```
+
+##### End Response
+Uniform method for ending responses
+
+```
+var app = express()
+  , endResponse = require('express_utils').middleware.endResponse
+  ;
+
+
+// ... setup express app, register routes, etc..
+
+// anything that has fallen through here and has an error object passed to express "next()" function
+app.all(endresponse);
+```
+
+##### Json Content Type
+Sets the contentType header to 'application/json'
+```
+var app = express=();
+    , json = require('express_utils').middleware.setJsonContentType
+    ;
+
+
+app.use(json);
+```
+
+
+##### Set Site Variables
+Adds supplied object keys and values to req.app.locals for use throughout the app.  This is useful for setting things like the application title or other globally defined variables.
+req.app.locals[key] = value will be set for each key supplied in the object.
+
+```
+var app = express=();
+    , setSiteVariables = require('express_utils').middleware.setSiteVariables
+    , siteVariables: {
+        title: 'My App',
+        description: 'application description'
+        }
+    ;
+
+
+app.use(setSiteVariables(siteVariables);
+// now req.app.locals.title && req.app.locals.description have been set and could be access in a jade view for example
+```
+
+### ErrorWare
+
 #### Error Handling
 express_utils provides so generic error handling middleware functions to be re-used in most express.js applications.
 
@@ -137,4 +195,32 @@ var app = express()
 // anything that has fallen through here is a 404
 app.all('*', errorware['404Client']('my404ViewName');
 ```
-404Client calls "res.render(<supplied view name>)"
+
+##### Send Response with Error Message
+Errorware to send the error message back
+```
+var app = express()
+  , errorware = require('express_utils').middleware.error
+  ;
+
+
+// ... setup express app, register routes, etc..
+
+// anything that has fallen through here and has an error object passed to express "next()" function
+app.all('*', errorware[sendResponseWithErrorMessage]);
+```
+
+
+##### Set Error status code
+Errorware to set the res.status to the error code or default to 500
+```
+var app = express()
+  , errorware = require('express_utils').middleware.error
+  ;
+
+
+// ... setup express app, register routes, etc..
+
+// anything that has fallen through here and has an error object passed to express "next()" function
+app.all('*', errorware[setStatusCode]);
+```
