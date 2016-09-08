@@ -1,6 +1,6 @@
 {
   "name": "express_utils",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A library of commonly used express.js functions as created and used by the MRI Dev Team",
   "main": "index.js",
   "scripts": {
