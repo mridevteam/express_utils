@@ -15,6 +15,11 @@ describe('bootExpressServerSpec', function () {
           var server = bootExpressServer(express(), 8989);
           expect(server.address().port).to.equal(8989);
       });
+
+      //it('should be handle bad port', function () {
+      //  var server = bootExpressServer(express(), 'boo');
+      //  expect(server.address().port).to.equal(8989);
+      //});
     });
 
     describe('Error conditions', function () {
@@ -27,6 +32,12 @@ describe('bootExpressServerSpec', function () {
       it('throw if not provided a port', function () {
         expect(function () {
           bootExpressServer({});
+        }).to.throw();
+      });
+
+      it('throw if not provided a bad port', function () {
+        expect(function () {
+          bootExpressServer({}, 'xxx');
         }).to.throw();
       });
 

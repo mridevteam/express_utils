@@ -14,7 +14,13 @@ describe('autoUpdateMenuItemSpec', function () {
           display: "Test 1",
           href: "/",
           class: "extraclass extraclass2",
-          isCurrent: false
+          isCurrent: false,
+          children: [{
+            display: "Test child",
+            href: "/child",
+            class: "extraclass extraclass2",
+            isCurrent: false,
+          }]
         }]
     ;
 

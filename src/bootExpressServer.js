@@ -13,8 +13,7 @@ let normalizePort = (val) => {
   let port = parseInt(val, 10);
 
   if (isNaN(port)) {
-    // named pipe
-    return val;
+   throw new Error('port must be a number');
   }
 
   if (port >= 0) {
@@ -29,10 +28,7 @@ let normalizePort = (val) => {
       throw error;
     }
 
-    let bind = typeof port === 'string'      ?
-        `Pipe ${port}`
-      : `Port ${port}`
-      ;
+    let bind = `Port ${port}`;
 
     // handle specific listen errors with friendly messages
     switch (error.code) {
@@ -50,9 +46,7 @@ let normalizePort = (val) => {
   }
   , onListening = () => {
     let addr = server.address()
-      , bind = typeof addr === 'string'          ?
-            `pipe ${addr}`
-          : `port ${addr.port}`
+      , bind = `port ${addr.port}`
       ;
 
     console.log(`Listening on ${bind}`);
