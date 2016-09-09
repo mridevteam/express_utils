@@ -22,7 +22,7 @@ utils.middleware.error.sendResponseWithErrorMessage = require('./src/middleware/
 utils.middleware.endResponse = require('./src/middleware/endResponse');
 utils.middleware.allowCrossOrigin = require('./src/middleware/allowCrossOrigin');
 utils.middleware.setJsonContentType = require('./src/middleware/jsonContentType');
-utils.middleware.setSiteVariables = require('./src/middleware/setStatusCode');
+utils.middleware.setSiteVariables = require('./src/middleware/setSiteVariables');
 utils.middleware.autoUpdateMenuItemBasedOnPath = require('./src/middleware/autoUpdateMenuItemBasedOnPath');
 
 
