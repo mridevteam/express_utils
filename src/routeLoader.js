@@ -24,6 +24,10 @@ function loadRoutes(expressApp, routesDir, urlPrefix) {
     return path.extname(path.join(routesDir, filename)) === '.js';
   }
 
+  function _filterOutUnderscoreFiles(filename) {
+    return !filename.startsWith('_')
+  }
+
   function _mountRoute(filename) {
     var modulePath = path.join(routesDir, filename)
       , name = path.basename(modulePath, '.js')
@@ -38,7 +42,10 @@ function loadRoutes(expressApp, routesDir, urlPrefix) {
     urlPrefix = '/';
   }
 
-  routes.filter(_filterOutNonJsFiles).forEach(_mountRoute);
+  routes
+    .filter(_filterOutNonJsFiles)
+    .filter(_filterOutUnderscoreFiles)
+    .forEach(_mountRoute);
 }
 
 module.exports = {
